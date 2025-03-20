@@ -119,16 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial check in case gallery is already in view
     revealGallery();
     
-    // Gallery item click events
-    galleryItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        item.classList.toggle("zoomed");
-        const img = item.querySelector("img");
-        if (img) {
-          img.style.transform = item.classList.contains("zoomed") ? "scale(1.2)" : "scale(1)";
-        }
-      });
-    });
   }
 
   // Intersection Observer for fade-in effect
@@ -454,4 +444,20 @@ document.addEventListener("DOMContentLoaded", () => {
       button.style.outline = "none";
     });
   });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('header ul');
+  
+  menuToggle.addEventListener('click', function() {
+    navMenu.classList.toggle('active');
+  });
+});
+
+// JavaScript for mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
